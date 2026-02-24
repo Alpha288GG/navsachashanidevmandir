@@ -56,15 +56,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Image Slider Interaction ---
-  const ticker = document.getElementById("tickerContent");
-  if (ticker) {
-    ticker.addEventListener("touchstart", () => {
-      ticker.style.animationPlayState = "paused";
+  // --- Image Slider (Draggable & Auto-play) ---
+  const slider = document.querySelector('.ticker-wrapper');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let autoScrollTimer;
+
+  if (slider) {
+    // Auto-scroll function
+    const startAutoScroll = () => {
+      autoScrollTimer = setInterval(() => {
+        if (!isDown) {
+          slider.scrollLeft += 1;
+          // Loop logic: if reached near end, reset to middle (content is duplicated in HTML)
+          if (slider.scrollLeft >= slider.scrollWidth / 2) {
+            slider.scrollLeft = 0;
+          }
+        }
+      }, 20); // Adjust speed here (lower = faster)
+    };
+
+    const stopAutoScroll = () => clearInterval(autoScrollTimer);
+
+    // Mouse Events
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('dragging');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+      stopAutoScroll();
     });
-    ticker.addEventListener("touchend", () => {
-      ticker.style.animationPlayState = "running";
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('dragging');
+      startAutoScroll();
     });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('dragging');
+      startAutoScroll();
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch Events (already handled by CSS overflow, but we pause auto-scroll)
+    slider.addEventListener('touchstart', () => stopAutoScroll());
+    slider.addEventListener('touchend', () => startAutoScroll());
+
+    startAutoScroll();
   }
 
   // --- Scroll Reveal Animation ---

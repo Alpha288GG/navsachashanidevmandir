@@ -321,54 +321,58 @@ header {
     background: var(--bg-white);
 }
 
-/* Image Ticker Slider */
+/* Image Slider (Draggable) */
 .image-ticker {
     width: 100%;
-    overflow: hidden;
     background: var(--bg-white);
     padding: 30px 0;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .ticker-wrapper {
     display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
+    cursor: grab;
+    padding: 10px 20px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    scroll-behavior: smooth;
+}
+
+.ticker-wrapper.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    user-select: none;
+}
+
+.ticker-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .ticker-content {
     display: flex;
     gap: 20px;
-    animation: tickerScroll 25s linear infinite;
-    cursor: pointer;
+    pointer-events: none; /* Let parent handle dragging */
 }
 
 .ticker-content img {
-    height: 220px;
+    height: 250px;
     width: auto;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    pointer-events: auto;
+    pointer-events: auto; /* Re-enable for hover effects */
 }
 
 .ticker-content img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(139, 26, 26, 0.2);
-}
-
-/* Pause animation on hover/touch */
-.image-ticker:hover .ticker-content {
-    animation-play-state: paused;
-}
-
-@keyframes tickerScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
-    .ticker-content img { height: 160px; }
+    .ticker-content img { height: 180px; }
 }
 
 .section-title-bar {
