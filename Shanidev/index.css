@@ -485,6 +485,76 @@ header {
 }
 
 /* ============================
+   News Spotlight Section
+   ============================ */
+.news-spotlight {
+    background: #fdfaf5; /* Slightly aged paper feel */
+}
+
+.news-frame {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.news-scroll-container {
+    height: 450px; /* Fixed height for reading */
+    overflow-y: auto;
+    padding-right: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    background: #fdfdfd;
+}
+
+/* Custom Scrollbar for the reading box */
+.news-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.news-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.news-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.news-badge {
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    background: var(--primary);
+    color: white;
+    padding: 4px 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.news-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-caption {
+    font-family: "DM Sans", sans-serif;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* ============================
    President Section
    ============================ */
 .president-content {

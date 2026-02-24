@@ -56,68 +56,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Image Slider (Draggable & Auto-play) ---
+  // --- Image Slider (Smooth Loop & Drag) ---
   const slider = document.querySelector('.ticker-wrapper');
   let isDown = false;
   let startX;
   let scrollLeft;
-  let autoScrollTimer;
+  let animationId;
 
   if (slider) {
-    // Auto-scroll function
-    const startAutoScroll = () => {
-      autoScrollTimer = setInterval(() => {
-        if (!isDown) {
-          slider.scrollLeft += 1;
-          // Loop logic: if reached near end, reset to middle (content is duplicated in HTML)
-          if (slider.scrollLeft >= slider.scrollWidth / 2) {
-            slider.scrollLeft = 0;
-          }
+    const scroll = () => {
+      if (!isDown) {
+        slider.scrollLeft += 1.2; // Smooth constant speed
+        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+          slider.scrollLeft = 0;
         }
-      }, 20); // Adjust speed here (lower = faster)
+      }
+      animationId = requestAnimationFrame(scroll);
     };
 
-    const stopAutoScroll = () => clearInterval(autoScrollTimer);
+    const startAnimation = () => {
+      if (!animationId) animationId = requestAnimationFrame(scroll);
+    };
 
-    // Mouse Events
+    const stopAnimation = () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    };
+
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
       slider.classList.add('dragging');
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
-      stopAutoScroll();
+      stopAnimation();
     });
 
     slider.addEventListener('mouseleave', () => {
       isDown = false;
       slider.classList.remove('dragging');
-      startAutoScroll();
+      startAnimation();
     });
 
     slider.addEventListener('mouseup', () => {
       isDown = false;
       slider.classList.remove('dragging');
-      startAutoScroll();
+      startAnimation();
     });
 
     slider.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll speed multiplier
+      const walk = (x - startX) * 2;
       slider.scrollLeft = scrollLeft - walk;
     });
 
-    // Touch Events (already handled by CSS overflow, but we pause auto-scroll)
-    slider.addEventListener('touchstart', () => stopAutoScroll());
-    slider.addEventListener('touchend', () => startAutoScroll());
+    slider.addEventListener('touchstart', (e) => {
+      isDown = true;
+      stopAnimation();
+    });
+    
+    slider.addEventListener('touchend', () => {
+      isDown = false;
+      startAnimation();
+    });
 
-    startAutoScroll();
+    startAnimation();
   }
 
   // --- Scroll Reveal Animation ---
   const revealElements = document.querySelectorAll(
-    ".service-card, .about-content, .president-content, .aarti-card, .timing-card, .gallery-item, .donation-layout, .contact-layout, .section-title-bar"
+    ".service-card, .about-content, .news-frame, .president-content, .aarti-card, .timing-card, .gallery-item, .donation-layout, .contact-layout, .section-title-bar"
   );
 
   const observer = new IntersectionObserver((entries) => {
