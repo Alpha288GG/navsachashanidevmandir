@@ -56,6 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // --- Image Slider Interaction ---
+  const ticker = document.getElementById("tickerContent");
+  if (ticker) {
+    ticker.addEventListener("touchstart", () => {
+      ticker.style.animationPlayState = "paused";
+    });
+    ticker.addEventListener("touchend", () => {
+      ticker.style.animationPlayState = "running";
+    });
+  }
+
   // --- Scroll Reveal Animation ---
   const revealElements = document.querySelectorAll(
     ".service-card, .about-content, .president-content, .aarti-card, .timing-card, .gallery-item, .donation-layout, .contact-layout, .section-title-bar"
