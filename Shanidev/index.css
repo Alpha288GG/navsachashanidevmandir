@@ -134,16 +134,13 @@ header {
     gap: 10px;
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-    color: var(--accent);
+.logo-icon-img {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(139, 26, 26, 0.15);
 }
 
 .logo-text {
@@ -433,6 +430,73 @@ header {
     .about-img-wrap img {
         height: 100%;
         min-height: 350px;
+    }
+}
+
+/* ============================
+   President Section
+   ============================ */
+.president-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    background: var(--bg-white);
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.president-img-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary);
+    box-shadow: 0 4px 12px rgba(139, 26, 26, 0.15);
+}
+
+.president-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.president-name {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-family: "Khand", sans-serif;
+}
+
+.president-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.president-text-wrap p {
+    line-height: 1.8;
+    color: var(--text-body);
+}
+
+@media (min-width: 768px) {
+    .president-content {
+        flex-direction: row;
+        text-align: left;
+        padding: 40px;
+        gap: 50px;
+    }
+    .president-img-wrap {
+        width: 220px;
+        height: 220px;
+        flex-shrink: 0;
     }
 }
 
