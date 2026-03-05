@@ -757,6 +757,80 @@ header {
 }
 
 /* ============================
+   Devasthan Utsav Card
+   ============================ */
+.utsav-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.utsav-card h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Khand", sans-serif;
+}
+
+.utsav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.utsav-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px;
+    background: var(--bg-alt);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    transition: var(--transition);
+}
+
+.utsav-list li:hover {
+    background: #FFF3E0;
+    border-left-color: var(--primary);
+}
+
+.utsav-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.utsav-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.utsav-name {
+    font-family: "Khand", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.utsav-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ============================
    Gallery
    ============================ */
 .gallery-grid {
