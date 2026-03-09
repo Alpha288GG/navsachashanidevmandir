@@ -777,44 +777,48 @@ header {
 
 .utsav-list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .utsav-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .utsav-list li {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 15px;
     padding: 18px;
     background: var(--bg-alt);
     border-radius: 8px;
-    border-left: 3px solid var(--accent);
+    border-top: 4px solid var(--accent);
     transition: var(--transition);
 }
 
 .utsav-list li:hover {
     background: #FFF3E0;
-    border-left-color: var(--primary);
+    border-top-color: var(--primary);
 }
 
-.utsav-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-    color: var(--bg-white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+.utsav-img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .utsav-info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
+    text-align: center;
 }
 
 .utsav-name {
@@ -871,17 +875,27 @@ header {
 }
 
 .donation-img {
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (min-width: 500px) {
+    .donation-img {
+        flex-direction: row;
+    }
 }
 
 .donation-img img,
 .donation-img video {
+    flex: 1;
+    min-width: 0;
     width: 100%;
     height: 300px;
     object-fit: cover;
     display: block;
+    border-radius: 10px;
+    border: 2px solid var(--border);
 }
 
 .donation-info {
@@ -1177,4 +1191,113 @@ footer {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* ============================
+   Abhishek Section
+   ============================ */
+.abhishek-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .abhishek-layout {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.abhishek-info {
+    flex: 1;
+}
+
+.abhishek-info h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.abhishek-animation {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background: var(--bg-alt);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.shivaling-container {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.oil-drop {
+    position: absolute;
+    top: -80px;
+    width: 12px;
+    height: 18px;
+    background: #e6b800;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: dropFall 1.5s infinite linear;
+}
+
+@keyframes dropFall {
+    0% {
+        top: -80px;
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+    10% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    80% {
+        top: 20px;
+        opacity: 1;
+        transform: scaleY(1.2);
+    }
+    100% {
+        top: 40px;
+        opacity: 0;
+        transform: scaleY(0.5) scaleX(1.5);
+    }
+}
+
+.shivaling {
+    width: 60px;
+    height: 80px;
+    background: #444;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5), inset 5px 5px 10px rgba(255,255,255,0.2);
+}
+
+.shivaling-base {
+    width: 90px;
+    height: 30px;
+    background: #555;
+    border-radius: 45px;
+    position: relative;
+    margin-top: -15px;
+    z-index: 1;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.5);
 }
