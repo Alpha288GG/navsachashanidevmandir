@@ -354,14 +354,15 @@ header {
 .ticker-content {
     display: flex;
     gap: 20px;
+    align-items: center;
     pointer-events: none; /* Let parent handle dragging */
 }
 
 .ticker-content img {
-    height: 250px;
+    max-height: 250px;
+    height: auto;
     width: auto;
     border-radius: 12px;
-    object-fit: cover;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     pointer-events: auto; /* Re-enable for hover effects */
@@ -372,7 +373,7 @@ header {
 }
 
 @media (max-width: 768px) {
-    .ticker-content img { height: 180px; }
+    .ticker-content img { max-height: 180px; height: auto; }
 }
 
 .section-title-bar {
@@ -902,6 +903,47 @@ header {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.annadate-section {
+    background: var(--bg-alt);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 5px;
+}
+
+.annadate-title {
+    font-family: inherit;
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+    color: var(--primary) !important;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.annadate-subtitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.annadate-address {
+    font-size: 0.85rem !important;
+    color: var(--text-muted);
+    line-height: 1.5 !important;
+    margin-bottom: 6px;
+}
+
+.annadate-gst {
+    font-size: 0.8rem !important;
+    color: #666;
+    font-style: italic;
+    background: #FFF3E0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 .donation-icon {
