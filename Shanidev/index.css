@@ -485,8 +485,8 @@ header {
 }
 
 @media (max-width: 768px) {
-    .ticker-content img { max-height: 200px; }
-    .hero-banner { margin: 0; border-radius: 0; }
+    .ticker-content img { max-height: 160px; }
+    .hero-banner { margin: 0; border-radius: 0; height: 50vh; min-height: 300px; max-height: 500px; }
 }
 
 .section-title-bar {
@@ -1053,13 +1053,9 @@ header {
 
 .donation-img {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
     align-content: start;
-}
-
-@media (min-width: 500px) {
-    .donation-img { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .donation-img img,
@@ -1431,7 +1427,7 @@ footer::before {
 @media (max-width: 768px) {
     .desktop-nav { display: none; }
     .hamburger { display: flex; }
-    .section { padding: 50px 0; }
+    .section { padding: 40px 0; }
     .section-title-bar h2 { font-size: 1.8rem; }
     
     .abhishek-layout, .aarti-card, .timing-card, .utsav-card, .contact-box {
@@ -1443,6 +1439,15 @@ footer::before {
     .service-card { padding: 20px 10px; }
     .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     .gallery-item img { height: 180px; }
+    
+    /* Mobile scrolling limiters */
+    .about-img-wrap img { height: 250px; }
+    .donation-img img, .donation-img video { 
+        max-height: 250px; /* Constrain Reels on mobile */ 
+        width: 100%;
+    }
+    .donation-img { max-width: 480px; margin: 0 auto; }
+    
     .footer-bottom { flex-direction: column; text-align: center; }
 }
 
