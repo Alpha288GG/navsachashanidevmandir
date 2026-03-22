@@ -189,4 +189,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Firebase Headline Integration ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDg9l2YfP1q5saXKbIwpKX-ZaH-EeIaLZ4",
+    authDomain: "codequest-f20b0.firebaseapp.com",
+    projectId: "codequest-f20b0",
+    storageBucket: "codequest-f20b0.firebasestorage.app",
+    messagingSenderId: "353052426911",
+    appId: "1:353052426911:web:5ccc3e975ae2ee4fbad8aa",
+    databaseURL: "https://codequest-f20b0-default-rtdb.firebaseio.com"
+  };
+
+  try {
+    if (typeof firebase !== 'undefined') {
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      const database = firebase.database();
+      const headlineEl = document.getElementById('dynamicHeadline');
+      
+      if (headlineEl) {
+        database.ref('headline').on('value', (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            headlineEl.textContent = data;
+          }
+        });
+      }
+    }
+  } catch (error) {
+    console.warn("Firebase not initialized or configured perfectly yet.", error);
+  }
+
 });
