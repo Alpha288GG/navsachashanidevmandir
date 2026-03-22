@@ -212,7 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
         database.ref('headline').on('value', (snapshot) => {
           const data = snapshot.val();
           if (data) {
-            headlineEl.textContent = data;
+            let repeatedHtml = '';
+            for(let i=0; i<10; i++) {
+              repeatedHtml += `<span class="ticker-text">${data}</span>`;
+            }
+            headlineEl.innerHTML = repeatedHtml;
           }
         });
       }

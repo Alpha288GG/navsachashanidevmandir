@@ -1476,20 +1476,27 @@ footer::before {
   flex-grow: 1;
   overflow: hidden;
   position: relative;
+  display: flex;
 }
 
 .headline-content {
-  display: inline-block;
+  display: flex;
+  width: max-content;
   white-space: nowrap;
   font-size: 1.05rem;
   font-weight: 500;
-  padding-left: 100%;
-  animation: scrollHeadline 25s linear infinite;
+  /* Faster speed since it translates one span length out of 10 */
+  animation: scrollHeadline 15s linear infinite;
+}
+
+.ticker-text {
+  padding-right: 50px;
 }
 
 @keyframes scrollHeadline {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  /* Translates exactly 10%, which equals 1 of the 10 spans, making it snap seamlessly */
+  100% { transform: translateX(-10%); }
 }
 
 .headline-content:hover {
