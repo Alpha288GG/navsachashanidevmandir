@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCHITECTURAL MONOGRAPH | MAINTENANCE</title>
+<!-- Google Fonts: Newsreader for Serifs, Inter for UI -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#f9f9f9",
+              "outline": "#777777",
+              "primary": "#000000",
+              "on-surface": "#1a1c1c",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eeeeee",
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"none": "0px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Rigid geometry enforcement */
+        * { border-radius: 0px !important; }
+        
+        /* Subtle architectural depth without standard shadows */
+        .arch-depth {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-surface overflow-hidden">
+<!-- Top Navigation Shell (Suppressing full nav as per instructions for focused maintenance) -->
+<header class="fixed top-0 left-0 w-full bg-[#f9f9f9] border-b border-primary flex justify-start items-center px-8 py-4 z-50">
+<span class="text-sm font-bold tracking-[0.2em] text-[#000000] font-['Newsreader'] uppercase">
+            ARCHITECTURAL MONOGRAPH
+        </span>
+</header>
+<!-- Main Content Canvas -->
+<main class="min-h-screen w-full flex items-center justify-center p-6 md:p-12 bg-surface">
+<!-- The Central Architectural Panel -->
+<div class="relative w-full max-w-4xl border-[1px] border-primary bg-surface-container-lowest p-12 md:p-24 arch-depth flex flex-col items-center justify-center transition-all">
+<!-- Structural Hairlines -->
+<div class="absolute top-4 left-4 right-4 bottom-4 border-[0.5px] border-outline pointer-events-none opacity-20"></div>
+<!-- The Hero Monograph Title -->
+<div class="text-center space-y-8 relative z-10">
+<span class="block font-label text-[0.6875rem] uppercase tracking-[0.4em] text-outline mb-4">
+                    Status: Offline
+                </span>
+<h1 class="font-headline text-[10vw] md:text-[5rem] lg:text-[7rem] leading-none tracking-tighter uppercase text-primary font-extralight">
+                    MAINTENANCE
+                </h1>
+<div class="h-[1px] w-24 bg-primary mx-auto my-12"></div>
+<p class="font-body text-sm md:text-base max-w-md mx-auto leading-relaxed text-on-surface/70 tracking-wide uppercase">
+                    The gallery is currently being curated. We are refining the digital structure to better serve the architectural discourse.
+                </p>
+</div>
+<!-- Corner Metadata -->
+<div class="absolute bottom-6 left-8">
+<p class="font-label text-[10px] uppercase tracking-widest text-outline">
+                    EST. 2024
+                </p>
+</div>
+<div class="absolute bottom-6 right-8">
+<p class="font-label text-[10px] uppercase tracking-widest text-outline">
+                    Ref. No. 00-14A
+                </p>
+</div>
+</div>
+</main>
+<!-- Visual Anchor: Decorative Image (Asymmetric Placement) -->
+<div class="fixed bottom-12 right-12 w-64 h-96 hidden xl:block border border-primary p-2 bg-white rotate-2 grayscale opacity-80">
+<div class="w-full h-full bg-surface-container overflow-hidden">
+<img alt="High-contrast architectural detail" class="w-full h-full object-cover" data-alt="Monochrome close-up of a brutalist concrete building facade with sharp geometric shadows and minimalist steel lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkrn1yTo2A1L0W3U90oJldQNF9XOLCdFPJaVkN9HRbQDZu8fV7ZSGPrhw0uoKfEKCOVkBoH0mhqFWipP7hZoYbTP4dc-q48LM9_b4WMFME3ELSphu0mbdo2yCYbibasw1AGffFH2LCP26eJt4FSRZUgPq5p8zzkRjDR1SRHK0w04bSMNzsW3Iz45erajpvbna5mubifMVOhRLVqeNBljbhp2DTlevAMFJL8tBurMEtoetyOTpsFlsev096zxkgOB4v_DglPd-Mos8"/>
+</div>
+</div>
+<!-- Footer Shell -->
+<footer class="fixed bottom-0 w-full border-t border-primary bg-transparent flex justify-center items-center py-6 px-8 z-50">
+<p class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-primary">
+            © 2024 ARCHITECTURAL MONOGRAPH. ALL RIGHTS RESERVED.
+        </p>
+</footer>
+</body></html>
